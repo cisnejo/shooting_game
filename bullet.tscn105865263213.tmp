@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ig8qlosyo1ms"]
+
+[ext_resource type="Texture2D" uid="uid://ck6k26bsci8kw" path="res://images/stick_figure.png" id="1_pgd8e"]
+[ext_resource type="Script" uid="uid://bcp3rmsy87dem" path="res://bullet.gd" id="1_v8qja"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_28ogt"]
+radius = 1.0
+height = 4.0
+
+[node name="Bullet" type="Area2D" unique_id=809381903]
+script = ExtResource("1_v8qja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=322270211]
+position = Vector2(30, -0.5)
+shape = SubResource("CapsuleShape2D_28ogt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1778163181]
+position = Vector2(30.000002, -0.5)
+scale = Vector2(0.15625, 0.171875)
+texture = ExtResource("1_pgd8e")

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://i52p4riymaik"]
+
+[ext_resource type="Script" uid="uid://buwsosbl15y26" path="res://Player.gd" id="1_3vi8l"]
+[ext_resource type="Texture2D" uid="uid://bksbq8eem1cpv" path="res://Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_rpg24"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vi8l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpg24"]
+atlas = ExtResource("1_rpg24")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vi8l"]
+atlas = ExtResource("1_rpg24")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8rhti"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpg24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vi8l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Base" type="Node2D" unique_id=794268276]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=77006597]
+script = ExtResource("1_3vi8l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1737051257]
+position = Vector2(241, 86)
+shape = SubResource("CapsuleShape2D_3vi8l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=280110386]
+sprite_frames = SubResource("SpriteFrames_8rhti")
+autoplay = "default"
