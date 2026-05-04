@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://i52p4riymaik"]
+
+[ext_resource type="PackedScene" uid="uid://cega683vu354e" path="res://player.tscn" id="1_rpg24"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpg24"]
+size = Vector2(193, 20)
+
+[node name="World" type="Node2D" unique_id=794268276]
+
+[node name="Player" parent="." unique_id=984160199 instance=ExtResource("1_rpg24")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1696657259]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1843562132]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1466428906]
+position = Vector2(-10, 59)
+shape = SubResource("RectangleShape2D_rpg24")

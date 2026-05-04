@@ -1,6 +1,6 @@
 extends StateInterface
 
-class_name JumpState
+class_name DashState
 
 var character: CharacterBody2D
 
@@ -21,12 +21,13 @@ func physics_update (delta:float):
 	
 	if character.roll_duration <=0 :
 		character.roll_duration = 1
+#CHANGE STATE --------------------------------
 		if input_vector.x!=0 || input_vector.y != 0:
 			state_machine.change_state("walk")
 		else:
 			state_machine.change_state("idle")
 	
 func handle_input(event):
-	if Input.is_action_just_pressed("shoot"):
-		state_machine.change_state("shoot")
+	#if Input.is_action_just_pressed("shoot"):
+		#state_machine.change_state("shoot")
 	return

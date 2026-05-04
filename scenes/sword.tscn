@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dxbc3emhuk0m2"]
+
+[ext_resource type="Script" uid="uid://dic6u0olabcw0" path="res://scipts/weapons/sword.gd" id="1_ycbs3"]
+[ext_resource type="Resource" uid="uid://w64o141ww45x" path="res://resources/sword.tres" id="2_n355p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n355p"]
+
+[node name="sword" type="CharacterBody2D" unique_id=435880753]
+script = ExtResource("1_ycbs3")
+resource = ExtResource("2_n355p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=306469917]
+shape = SubResource("RectangleShape2D_n355p")

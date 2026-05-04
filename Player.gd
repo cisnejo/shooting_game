@@ -1,10 +1,19 @@
 extends CharacterBody2D
 
-var state_machine: StateMachine
-var dash_speed = 0
-var roll_duration = 1
-var player_name = "joe"
+@onready var AnimimatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var speed: float = 100
+
+var state_machine: StateMachine
+const WALK_SPEED = 300.0
+const ACCELERATION_SPEED = WALK_SPEED * 6.0
+const JUMP_VELOCITY = -250.0
+## Maximum speed at which the player can fall.
+const TERMINAL_VELOCITY = 700
+var REVERT_STATE =""
+var player_name = "joe"
+
+var gravity: int = ProjectSettings.get(&"physics/2d/default_gravity")
+
 #this is going on your gun next
 
 
@@ -15,8 +24,11 @@ func _ready() -> void:
 	state_machine.add_state("shoot",ShootState.new())
 	state_machine.add_state("idle",IdleState.new())
 	state_machine.add_state("walk",WalkState.new())
+	state_machine.add_state("dash",DashState.new())
 	state_machine.add_state("jump",JumpState.new())
-
+	state_machine.add_state("fall",FallState.new())
+	state_machine.add_state("attack",AttackState.new())
+	state_machine.add_state("attack2",AttackState2.new())
 	state_machine.set_initial_state("idle")
 
 
@@ -31,3 +43,7 @@ func _input(event: InputEvent) -> void:
 	
 func get_current_state()->String:
 	return state_machine.get_current_state_name()
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	pass # Replace with function body.
