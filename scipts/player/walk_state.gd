@@ -20,7 +20,7 @@ func physics_update (delta):
 	PLAYER.move_and_slide()
 	
 	if PLAYER.velocity.x == 0 && PLAYER.is_on_floor():
-		#state_machine.change_state("idle")
+		state_machine.change_state("idle")
 		state_machine.owner.AnimimatedSprite.play("idle")
 		return
 	elif  PLAYER.velocity.x != 0 && PLAYER.is_on_floor():

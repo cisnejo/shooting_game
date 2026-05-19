@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="HitboxFrameData" format=3 uid="uid://dnlyl0mydnq55"]
+
+[ext_resource type="Script" uid="uid://ovsdbgwdih1v" path="res://resources/resource_script/hitbox_frame_entry_resource.gd" id="1_h2slx"]
+[ext_resource type="Script" uid="uid://cgjqmcd1u8u4f" path="res://resources/resource_script/hitbox_frame_data_resource.gd" id="2_p27l5"]
+
+[resource]
+script = ExtResource("2_p27l5")
+metadata/_custom_type_script = "uid://cgjqmcd1u8u4f"

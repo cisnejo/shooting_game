@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://w3bjjpnvv4gu"]
+
+[ext_resource type="Script" uid="uid://6ng2m6rbsnh0" path="res://Enemies/chicken/chicken.gd" id="1_ohsiw"]
+[ext_resource type="Texture2D" uid="uid://bjnkyxmkamrww" path="res://Sprout Lands - Sprites - Basic pack/Characters/Free Chicken Sprites.png" id="1_xpnnf"]
+[ext_resource type="Script" uid="uid://d0qct8eihkidd" path="res://scipts/enemy/enemy_resource.gd" id="2_x8g1n"]
+
+[sub_resource type="Resource" id="Resource_ohsiw"]
+script = ExtResource("2_x8g1n")
+health = 50.0
+damageable = true
+metadata/_custom_type_script = "uid://d0qct8eihkidd"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cke7"]
+atlas = ExtResource("1_xpnnf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loyd7"]
+atlas = ExtResource("1_xpnnf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn24t"]
+atlas = ExtResource("1_xpnnf")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gst58"]
+atlas = ExtResource("1_xpnnf")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpr3m"]
+atlas = ExtResource("1_xpnnf")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qbcg"]
+atlas = ExtResource("1_xpnnf")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0kj8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cke7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loyd7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn24t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gst58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpr3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qbcg")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vi8l"]
+size = Vector2(17.666668, 17.333336)
+
+[node name="chicken" type="CharacterBody2D" unique_id=1644898102]
+script = ExtResource("1_ohsiw")
+resource = SubResource("Resource_ohsiw")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2037027587]
+position = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_u0kj8")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=23285698]
+position = Vector2(-0.62500036, -0.49999988)
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_3vi8l")

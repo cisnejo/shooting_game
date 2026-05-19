@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://i52p4riymaik"]
 
 [ext_resource type="PackedScene" uid="uid://cega683vu354e" path="res://player.tscn" id="1_rpg24"]
-[ext_resource type="PackedScene" uid="uid://dxbc3emhuk0m2" path="res://scenes/sword.tscn" id="2_3vi8l"]
+[ext_resource type="PackedScene" uid="uid://w3bjjpnvv4gu" path="res://Enemies/chicken/chicken.tscn" id="2_3vi8l"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rpg24"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rpg24"]
 
@@ -13,13 +16,19 @@ size = Vector2(193, 20)
 [node name="Player" parent="." unique_id=984160199 instance=ExtResource("1_rpg24")]
 position = Vector2(3, -71)
 
-[node name="sword" parent="." unique_id=435880753 instance=ExtResource("2_3vi8l")]
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1696657259]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1843562132]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1625355857]
+position = Vector2(-10, 59)
+scale = Vector2(1.5, 0.15625)
+texture = SubResource("CompressedTexture2D_rpg24")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1466428906]
 material = SubResource("CanvasItemMaterial_rpg24")
 position = Vector2(-10, 59)
 shape = SubResource("RectangleShape2D_rpg24")
+
+[node name="chicken" parent="." unique_id=1644898102 instance=ExtResource("2_3vi8l")]
+position = Vector2(64, 43)

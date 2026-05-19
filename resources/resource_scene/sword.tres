@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://r7g7f65i5rcx" path="res://scipts/weapons/weapon_resource.gd" id="1_kr6k7"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_kr6k7")
-weapon_name = "Sword"
+weapon_name = "sword"
 damage = 10.0
+Damageable = true
 metadata/_custom_type_script = "uid://r7g7f65i5rcx"

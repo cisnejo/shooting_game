@@ -6,8 +6,10 @@ var PLAYER:CharacterBody2D
 func enter(previous_state:String="")->void:
 	PLAYER = state_machine.owner
 	state_machine.owner.AnimimatedSprite.play("idle")
-	print("entered idle state")
-	
+	var sword_scene = load("res://scenes/weapon.tscn")
+	var sword_instance = sword_scene.instantiate()
+	PLAYER.add_child(sword_instance)
+		
 	return
 	
 func handle_input(event: InputEvent) -> void:

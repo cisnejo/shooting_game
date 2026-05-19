@@ -300,14 +300,14 @@ animations = [{
 
 [sub_resource type="Resource" id="Resource_ivps1"]
 script = ExtResource("9_ivps1")
-animation = &"attack_1"
+animation = &"attack_melee_default"
 start_frame = 1
 end_frame = 3
 metadata/_custom_type_script = "uid://ovsdbgwdih1v"
 
 [sub_resource type="Resource" id="Resource_urp6f"]
 script = ExtResource("9_ivps1")
-animation = &"attack_2"
+animation = &"attack_melee_followup"
 start_frame = 2
 end_frame = 4
 metadata/_custom_type_script = "uid://ovsdbgwdih1v"

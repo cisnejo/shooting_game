@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://83javtnvhdi6"]
 
 [ext_resource type="Texture2D" uid="uid://bpr7wxcqr2x86" path="res://images/gun.png" id="1_vk1bi"]
-[ext_resource type="Script" uid="uid://duc1al4eoqosr" path="res://scipts/gun.gd" id="2_dk5gl"]
+[ext_resource type="Script" uid="uid://duc1al4eoqosr" path="res://scipts/gun/gun.gd" id="2_dk5gl"]
 
 [node name="Gun" type="Sprite2D" unique_id=554218097]
 texture = ExtResource("1_vk1bi")
