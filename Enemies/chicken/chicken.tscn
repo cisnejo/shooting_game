@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://6ng2m6rbsnh0" path="res://Enemies/chicken/chicken.gd" id="1_ohsiw"]
 [ext_resource type="Texture2D" uid="uid://bjnkyxmkamrww" path="res://Sprout Lands - Sprites - Basic pack/Characters/Free Chicken Sprites.png" id="1_xpnnf"]
 [ext_resource type="Script" uid="uid://d0qct8eihkidd" path="res://scipts/enemy/enemy_resource.gd" id="2_x8g1n"]
+[ext_resource type="PackedScene" uid="uid://cr3g17uk520xo" path="res://scenes/damage_reciever.tscn" id="4_x8g1n"]
+[ext_resource type="Script" uid="uid://dypmwp6c4sqyo" path="res://scipts/emitters/damage_reciever.gd" id="5_hr0yd"]
 
 [sub_resource type="Resource" id="Resource_ohsiw"]
 script = ExtResource("2_x8g1n")
@@ -37,7 +39,7 @@ region = Rect2(48, 16, 16, 16)
 [sub_resource type="SpriteFrames" id="SpriteFrames_u0kj8"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 30.0,
 "texture": SubResource("AtlasTexture_5cke7")
 }, {
 "duration": 1.0,
@@ -65,12 +67,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vi8l"]
-size = Vector2(17.666668, 17.333336)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hr0yd"]
+radius = 4.0000005
+height = 11.666666
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_72srm"]
+radius = 5.0
 
 [node name="chicken" type="CharacterBody2D" unique_id=1644898102]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_ohsiw")
 resource = SubResource("Resource_ohsiw")
+knockback_intensity = 50.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2037027587]
 position = Vector2(1, -1)
@@ -79,6 +88,18 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=23285698]
-position = Vector2(-0.62500036, -0.49999988)
+position = Vector2(0, 2)
+rotation = 1.5707964
 scale = Vector2(0.75, 0.75)
-shape = SubResource("RectangleShape2D_3vi8l")
+shape = SubResource("CapsuleShape2D_hr0yd")
+
+[node name="DamageReciever" parent="." unique_id=1393051758 instance=ExtResource("4_x8g1n")]
+position = Vector2(0, 1)
+collision_layer = 32
+script = ExtResource("5_hr0yd")
+
+[node name="CollisionShape2D" parent="DamageReciever" index="0" unique_id=1409917259]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_72srm")
+
+[editable path="DamageReciever"]

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cr3g17uk520xo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1orla"]
+
+[node name="DamageReciever" type="Area2D" unique_id=1393051758]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1409917259]
+shape = SubResource("RectangleShape2D_1orla")
+debug_color = Color(0, 0.6470895, 0.22851023, 0.41960785)

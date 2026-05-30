@@ -19,6 +19,13 @@ config/icon="res://icon.svg"
 
 GlobalData="*uid://b6egfqcsn3qo0"
 
+[display]
+
+window/size/viewport_width=1100
+window/size/viewport_height=1100
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+
 [input]
 
 move_right={
@@ -56,10 +63,24 @@ attack={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Destructibles"
+2d_physics/layer_5="PlayerDamageReciever"
+2d_physics/layer_6="EnemyDamageReciever"
+2d_physics/layer_7="DestructibleDamageReciever"
+2d_physics/layer_8="PlayerDamageReciever"
+2d_physics/layer_9="EnemyDamageReciever"
+2d_physics/layer_10="DestructiblesDamageReciever"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://i52p4riymaik"]
 
+[ext_resource type="Script" uid="uid://dap6cv33ru8ri" path="res://base.gd" id="1_8rhti"]
 [ext_resource type="PackedScene" uid="uid://cega683vu354e" path="res://player.tscn" id="1_rpg24"]
 [ext_resource type="PackedScene" uid="uid://w3bjjpnvv4gu" path="res://Enemies/chicken/chicken.tscn" id="2_3vi8l"]
 
@@ -9,26 +10,68 @@ load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.cte
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rpg24"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpg24"]
-size = Vector2(193, 20)
+size = Vector2(636.5, 34)
 
 [node name="World" type="Node2D" unique_id=794268276]
+script = ExtResource("1_8rhti")
 
-[node name="Player" parent="." unique_id=984160199 instance=ExtResource("1_rpg24")]
-position = Vector2(3, -71)
+[node name="WorldColliders" type="Node2D" parent="." unique_id=82706539]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1696657259]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1843562132]
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1625355857]
-position = Vector2(-10, 59)
-scale = Vector2(1.5, 0.15625)
+[node name="Sprite2D" type="Sprite2D" parent="WorldColliders" unique_id=1625355857]
+scale = Vector2(5, 5)
 texture = SubResource("CompressedTexture2D_rpg24")
+centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1466428906]
+[node name="StaticBody2D2" type="StaticBody2D" parent="WorldColliders" unique_id=1843562132]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldColliders/StaticBody2D2" unique_id=1466428906]
 material = SubResource("CanvasItemMaterial_rpg24")
-position = Vector2(-10, 59)
+position = Vector2(319, -22)
 shape = SubResource("RectangleShape2D_rpg24")
+debug_color = Color(0.6533795, 0.51853055, 0, 0.41960785)
 
-[node name="chicken" parent="." unique_id=1644898102 instance=ExtResource("2_3vi8l")]
-position = Vector2(64, 43)
+[node name="StaticBody2D3" type="StaticBody2D" parent="WorldColliders" unique_id=687048349]
+position = Vector2(0, 675)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldColliders/StaticBody2D3" unique_id=514826385]
+material = SubResource("CanvasItemMaterial_rpg24")
+position = Vector2(319.75, -19)
+shape = SubResource("RectangleShape2D_rpg24")
+debug_color = Color(0.64979804, 0.5203663, 7.70092e-07, 0.41960785)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="WorldColliders" unique_id=1876719333]
+position = Vector2(0, 675)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldColliders/StaticBody2D4" unique_id=855740021]
+material = SubResource("CanvasItemMaterial_rpg24")
+position = Vector2(660, -356)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_rpg24")
+debug_color = Color(0.6420826, 0.52425283, 1.92523e-07, 0.41960785)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="WorldColliders" unique_id=1782864424]
+position = Vector2(0, 675)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldColliders/StaticBody2D5" unique_id=156588420]
+material = SubResource("CanvasItemMaterial_rpg24")
+position = Vector2(-20, -356)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_rpg24")
+debug_color = Color(0.63323754, 0.52859616, 1.92523e-07, 0.41960785)
+
+[node name="Camera" type="Camera2D" parent="." unique_id=949639963]
+position = Vector2(50, 50)
+zoom = Vector2(2, 2)
+
+[node name="ActorsContainer" type="Node2D" parent="." unique_id=502609891]
+y_sort_enabled = true
+
+[node name="Player" parent="ActorsContainer" unique_id=984160199 instance=ExtResource("1_rpg24")]
+position = Vector2(55, 31)
+
+[node name="chicken" parent="ActorsContainer" unique_id=1644898102 instance=ExtResource("2_3vi8l")]
+position = Vector2(245, 73)
