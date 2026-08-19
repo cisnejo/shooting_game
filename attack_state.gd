@@ -22,6 +22,7 @@ func enter(prev_state: String="")->void:
 	ANIMATED_SPRITE = PLAYER.AnimimatedSprite
 	WEAPON = PLAYER.get_weapon()
 	CURRENT_ATTACK_NAME = "".join(["attack_",str(PLAYER.CURRENT_ATTACK)])
+	PLAYER_ATTACK_RESET = false
 	
 	#Enforce maximum attacks
 	if PLAYER.CURRENT_ATTACK <= PLAYER.MAX_ALLOWABLE_ATTACK :

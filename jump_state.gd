@@ -7,7 +7,7 @@ var PLAYER: CharacterBody2D
 func try_jump() -> void:
 	PLAYER.velocity.y = PLAYER.JUMP_VELOCITY
 	
-func enter(prev_state: String=""):
+func enter(prev_state: String="")->void:
 	PLAYER = state_machine.owner
 	try_jump()
 	state_machine.owner.AnimimatedSprite.play("jump")
